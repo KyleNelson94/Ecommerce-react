@@ -23,7 +23,7 @@ const Container = styled.div`
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
-	min-width: calc(100vw - ${props => props.theme.sidebarWidth}px);
+	min-width: calc(100vw - ${props => props.theme.sidebarWidth + 17}px);
 	margin-left: ${props => props.theme.sidebarWidth}px;
   
   .menu-check {
