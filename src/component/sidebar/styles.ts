@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 const Bar = styled.nav`
 	position: fixed;
 	top: 0;
@@ -13,7 +12,23 @@ const Bar = styled.nav`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
+
+	ul {
+		list-style: none;
+		margin: 3rem 0;
+
+		li {
+
+			margin: 2rem 0;
+			display: block;
+			cursor: pointer;
+
+			a {
+				display: block;
+			}
+		}
+	}
 `;
 //<Logo src={LogoIcon} />
 const Logo = styled.img`
@@ -21,6 +36,7 @@ const Logo = styled.img`
 	height: 33px;
 	margin: 0 auto;
 	text-align: center;
+	cursor: pointer;
 `;
 
 export {Bar, Logo};

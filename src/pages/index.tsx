@@ -1,21 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
+import * as React from 'react';
 
 interface Props {
-	label: string;
+	title: string;
 	query: any;
-}
+};
 
-const Container = styled.div`
-	position: relative;
-`;
-
-const Home = ({query, label}:Props) => {
-	console.log('Page Query 4 index ----------------------->', query);
+const Home = ({query, title}:Props) => {
+	title = "Home";
 	return (
-		<Container>
-			<h1>Hello Home Component</h1>
-		</Container>
+		<h1>Hello {title} Component</h1>
 	);
 }
 

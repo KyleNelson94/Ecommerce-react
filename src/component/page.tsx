@@ -1,9 +1,8 @@
 import * as React from 'react';
 import styled, {ThemeProvider} from 'styled-components';
 import Header from './header/Header';
-import SideBar from './sidebar/sidebar';
-import { lightTheme } from '../utils/index';
-import { GlobalTheme } from '@utils/styleTheme.ts';
+import { Sidebar } from './sidebar/index';
+import { GlobalTheme, lightTheme } from '@utils/styleTheme.ts';
 
 interface Props {
   children: object;
@@ -20,13 +19,12 @@ const GridContainer = styled.div`
 const Container = styled.div`
 
 	position: relative;
-	background: ${props => props.theme.primaryColor};
+	background: ${props => props.theme.white};
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
 	min-width: calc(100vw - ${props => props.theme.sidebarWidth}px);
 	margin-left: ${props => props.theme.sidebarWidth}px;
-  padding: 0 35px 0 70px;
   
   .menu-check {
 
@@ -63,16 +61,26 @@ const Container = styled.div`
   }
 `;
 
+const InnerContainer = styled.div`
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 2rem 35px 0 70px;
+	background: ${props => props.theme.primaryColor};
+`;
+
 function Page({children}: Props) {
   return (
     <ThemeProvider theme={ lightTheme }>
       <GlobalTheme />
       <GridContainer>
-        <SideBar />
+        <Sidebar logo={'null'} locations={[]} />
         <Container>
           <input id="menu-check" name="menu-check" className="menu-check" type="checkbox" />
           <Header />
-          {children}
+          <InnerContainer>
+            {children}
+          </InnerContainer>
         </Container>
       </GridContainer>
     </ThemeProvider>

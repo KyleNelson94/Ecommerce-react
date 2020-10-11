@@ -51,6 +51,7 @@ export const GlobalTheme = createGlobalStyle`
 		line-height: normal;
 		-webkit-font-smoothing: antialised;
 		font-family: 'Lato', sans-serif;
+		overflow-x: hidden;
 	}
 
 	h1, h2, h3, h4, h5, span, a, li, button {

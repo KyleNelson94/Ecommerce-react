@@ -12,7 +12,7 @@ function Header() {
 							<Link href="todaysDeals">Todays Deals</Link>
 						</li>
 						<li>
-							<Link href="/">History</Link>
+							<Link href="history">History</Link>
 						</li>
 						<li>
 							<Link href="todaysDeals">Buy Again</Link>

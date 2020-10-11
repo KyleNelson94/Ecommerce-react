@@ -21,9 +21,13 @@ const SideNav = styled.aside`
   z-index: 10;
   background: ${props => props.theme.white};
   box-shadow: 2px 0 15px -1px ${props => props.theme.tertiaryColor};
-  padding: 3rem 2rem;
 
   nav {
+
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
 
     ul {
       list-style: none;
@@ -32,6 +36,8 @@ const SideNav = styled.aside`
         a {
           display: block;
           padding: 1rem;
+          color: ${props => props.theme.secondaryColor};
+          text-decoration: none;
         }
       }
     }
@@ -40,6 +46,7 @@ const SideNav = styled.aside`
 
 const Navigation = styled.nav`
   position: relative;
+  padding: 1rem 0;
 
   ul {
 
