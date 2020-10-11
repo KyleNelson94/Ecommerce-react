@@ -19,7 +19,7 @@ declare module "styled-components" {
 export const lightTheme: DefaultTheme = {
 	primaryColor: "#F7F7F7",
 	secondaryColor: "#001534",
-	tertiaryColor: "FF9900",
+	tertiaryColor: "#FF9900",
 	white: "#FFFFFF",
 	sidebarWidth: 70,
 	menuWidth: 30,

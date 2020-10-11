@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { useFormik } from 'formik';
 
-function Login () {
+interface Props {
+  isAuthenticated: boolean;
+}
+
+function Login ({isAuthenticated}:Props) {
 
   const[isLoading, setIsLoading] = React.useState(false);
-  const[isLoggedIn, setIsLoggedIn] = React.useState(true); // set to false once authentication is built in
   
   const formik = useFormik({
     initialValues: {

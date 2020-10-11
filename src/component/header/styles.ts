@@ -9,6 +9,35 @@ const Container = styled.header`
   }
 `;
 
+const SideNav = styled.aside`
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40vw;
+  height: 100vh;
+  transition: ${props => props.theme.speed500}ms ${props => props.theme.transitCubeBezier};
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 10;
+  background: ${props => props.theme.white};
+  box-shadow: 2px 0 15px -1px ${props => props.theme.tertiaryColor};
+  padding: 3rem 2rem;
+
+  nav {
+
+    ul {
+      list-style: none;
+
+      li {
+        a {
+          display: block;
+          padding: 1rem;
+        }
+      }
+    }
+  }
+`;
+
 const Navigation = styled.nav`
   position: relative;
 
@@ -43,6 +72,7 @@ const Navigation = styled.nav`
       cursor: pointer;
       width: ${props => props.theme.menuWidth + 10}px;
       height: ${props => props.theme.menuWidth}px;
+      z-index: 9999;
 
       span {
 
@@ -80,36 +110,9 @@ const Navigation = styled.nav`
         }
       }
     }
-
-    
-    li .menu-check {
-
-      display: none;
-
-      &:checked {
-
-        ~ .menu-label span {
-
-          background-color: ${props => props.theme.primaryColor};
-
-          &::before, &::after {
-
-            top: 0;
-          }
-
-          &::before {
-
-            transform: rotate(-220deg);
-          }
-
-          &::after {
-
-            transform: rotate(220deg);
-          }
-        }
-      }
-    }
   }
 `;
 
-export {Container, Navigation};
+
+
+export {Container, Navigation, SideNav};

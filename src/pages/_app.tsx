@@ -2,7 +2,6 @@ import * as React from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Page from '../component/page';
-import '../../public/index.css';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
 import '../../public/nprogress.css';

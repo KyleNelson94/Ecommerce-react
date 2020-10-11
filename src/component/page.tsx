@@ -26,7 +26,41 @@ const Container = styled.div`
 	min-height: 100vh;
 	min-width: calc(100vw - ${props => props.theme.sidebarWidth}px);
 	margin-left: ${props => props.theme.sidebarWidth}px;
-	padding: 0 35px 0 70px;
+  padding: 0 35px 0 70px;
+  
+  .menu-check {
+
+    display: none;
+
+    &:checked {
+
+      ~ header nav ul li .menu-label span {
+
+        background-color: ${props => props.theme.primaryColor};
+
+        &::before, &::after {
+
+          top: 0;
+        }
+
+        &::before {
+
+          transform: rotate(-220deg);
+        }
+
+        &::after {
+
+          transform: rotate(220deg);
+        }
+      }
+
+      ~ .slide-menu {
+
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
 `;
 
 function Page({children}: Props) {
@@ -36,6 +70,7 @@ function Page({children}: Props) {
       <GridContainer>
         <SideBar />
         <Container>
+          <input id="menu-check" name="menu-check" className="menu-check" type="checkbox" />
           <Header />
           {children}
         </Container>
