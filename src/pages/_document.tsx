@@ -1,23 +1,22 @@
 import * as React from 'react';
 import Document, { Head, Main, NextScript, Html } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import { GlobalTheme } from '../utils/index';
 
 export default class MyDocument extends Document {
-
   static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
-    const page = renderPage(App => props => sheet.collectStyles(<App {...props} />));
     const styleTags = sheet.getStyleElement();
 
-    return {...page, ...styleTags};
-  };
+    const page = renderPage(App => props =>
+      sheet.collectStyles(<App {...props} />)
+    );
+    return { ...page, styleTags };
+  }
 
   render() {
     return (
       <Html lang="en">
         <Head>{this.props.styleTags}</Head>
-        <GlobalTheme />
         <body>
           <Main />
           <NextScript />
@@ -25,4 +24,4 @@ export default class MyDocument extends Document {
       </Html>
     );
   }
-}
+};

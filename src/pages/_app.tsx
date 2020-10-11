@@ -1,21 +1,42 @@
 import * as React from 'react';
-import App from 'next/app';
-import { ApolloProvider } from '@apollo/client';
-// need to add a cart state
-import withData from '../utils/withData';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Page from '../component/page';
+import '../../public/index.css';
+import { Router } from 'next/router';
+import NProgress from 'nprogress';
+import '../../public/nprogress.css';
+interface Props {
+  Component: any;
+  ctx: any;
+  apollo: any;
+  pageProps: any;
+};
 
-function MyApp({ Component, apollo, pageProps }) {
+toast.configure({
+  draggable: false,
+  autoClose: 5000
+});
+
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete',  () => NProgress.done());
+Router.events.on('routeChangeError', (error) => toast(error));
+function MyApp({ Component, apollo, pageProps }:Props) {
+
+  console.log('***************   App Component Render  ****************');
+  console.log('Hello Component --------------->', Component);
+  console.log('Hello Page props --------------------->', pageProps);
+  console.log('Hello Apollo --------------------->', apollo);
+  console.log('**************************************************');
   return (
-    <ApolloProvider client={apollo}>
-      <Page>
-        <Component {...pageProps} />
-      </Page>
-    </ApolloProvider>
+    <Page>
+      <Component {...pageProps} />
+    </Page>
   );
-}
+};
 
-MyApp.getInitialProps = async function({ Component, ctx }) {
+MyApp.getInitialProps = async function({ Component, ctx }: Props) {
+
   let pageProps = {};
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
@@ -25,4 +46,4 @@ MyApp.getInitialProps = async function({ Component, ctx }) {
   return { pageProps };
 };
 
-export default withData(MyApp);
+export default MyApp;

@@ -4,6 +4,7 @@ declare module "styled-components" {
 	export interface DefaultTheme {
 		primaryColor: string;
 		secondaryColor: string;
+		tertiaryColor: string;
 		white: string;
 		sidebarWidth: number;
 		menuWidth: number;
@@ -18,6 +19,7 @@ declare module "styled-components" {
 export const lightTheme: DefaultTheme = {
 	primaryColor: "#F7F7F7",
 	secondaryColor: "#001534",
+	tertiaryColor: "FF9900",
 	white: "#FFFFFF",
 	sidebarWidth: 70,
 	menuWidth: 30,

@@ -3,7 +3,14 @@ import { onError } from '@apollo/link-error';
 import { getDataFromTree } from '@apollo/react-ssr';
 import withApollo from 'next-with-apollo';
 
-function createClient({ initialState }) {
+interface Props {
+  headers: any;
+  initialState: any;
+};
+
+function createClient({ headers, initialState }:Props) {
+  console.log('Header in withData -------------->', headers);
+  console.log('IS in withData -------------->', initialState);
   return new ApolloClient({
     link: ApolloLink.from([
       onError(({ graphQLErrors, networkError }) => {
@@ -21,6 +28,6 @@ function createClient({ initialState }) {
     ]),
     cache: new InMemoryCache({}).restore(initialState || {}),
   });
-}
+};
 
 export default withApollo(createClient, { getDataFromTree });

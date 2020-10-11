@@ -3,6 +3,11 @@ import styled, {ThemeProvider} from 'styled-components';
 import Header from './header/Header';
 import SideBar from './sidebar/sidebar';
 import { lightTheme } from '../utils/index';
+import { GlobalTheme } from '@utils/styleTheme.ts';
+
+interface Props {
+  children: object;
+};
 
 const GridContainer = styled.div`
 
@@ -24,18 +29,19 @@ const Container = styled.div`
 	padding: 0 35px 0 70px;
 `;
 
-export default class Page extends React.PureComponent {
-  render() {
-    return (
-      <ThemeProvider theme={ lightTheme }>
-        <GridContainer className="App">
-          <SideBar />
-          <Container>
-            <Header />
-            {this.props.children}
-          </Container>
-        </GridContainer>
-      </ThemeProvider>
-    );
-  }
+function Page({children}: Props) {
+  return (
+    <ThemeProvider theme={ lightTheme }>
+      <GlobalTheme />
+      <GridContainer>
+        <SideBar />
+        <Container>
+          <Header />
+          {children}
+        </Container>
+      </GridContainer>
+    </ThemeProvider>
+  );
 };
+
+export default Page;
