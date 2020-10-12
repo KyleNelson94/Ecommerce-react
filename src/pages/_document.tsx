@@ -3,7 +3,7 @@ import Document, { Head, Main, NextScript, Html } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
+  static getInitialProps({ renderPage }:any) {
     const sheet = new ServerStyleSheet();
     const styleTags = sheet.getStyleElement();
 
@@ -11,7 +11,7 @@ export default class MyDocument extends Document {
       sheet.collectStyles(<App {...props} />)
     );
     return { ...page, styleTags };
-  }
+  };
 
   render() {
     return (
