@@ -29,10 +29,10 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/favorites": [
+    "/todaysDeals": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/favorites.js"
+      "static/chunks/pages/todaysDeals.js"
     ]
   },
   "ampFirstPages": []

@@ -31,7 +31,8 @@
     "react-scripts": "3.4.3",
     "react-toastify": "^6.0.9",
     "styled-components": "^5.2.0",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "yarn": "^1.22.10"
   },
   "scripts": {
     "start": "next && craco start",
