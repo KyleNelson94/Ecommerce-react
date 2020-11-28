@@ -67,6 +67,10 @@ const InnerContainer = styled.div`
 	height: 100%;
 	padding: 2rem 35px 0 70px;
 	background: ${props => props.theme.primaryColor};
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 function Page({children}: Props) {

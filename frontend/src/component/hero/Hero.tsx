@@ -14,7 +14,12 @@ const HeroContainer = styled.section`
   background-color: ${ props => props.theme.primaryColor };
   min-height: 40vh;
   display: flex;
+  flex-direction: row;
   flex-flow: row wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const HeroContentContainer = styled.div`
@@ -23,6 +28,11 @@ const HeroContentContainer = styled.div`
   width: 50%;
   height: 100%;
   border: 5px solid red;
+
+  @media (max-width: 768px) {
+
+    width: 100%;
+  }
 `;
 
 const HeroImage = styled.div`
@@ -32,6 +42,11 @@ const HeroImage = styled.div`
   height: 100%;
   min-height: 40vh;
   background-color: ${ props => props.theme.tertiaryColor };
+  
+  @media (max-width: 768px) {
+
+    width: 100%;
+  }
 `;
 
 const Hero = ({ title, btnText, btnUrl, btnColor }: Props) => {
